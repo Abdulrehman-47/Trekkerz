@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+<head>
+   <meta charset="utf-8">
+   <title>Responsive Navigation Menu</title>
+   <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+   <nav>
+      <div class="logo">
+         <img src="Untitled design (20) (1).png" alt="Brand Logo" class="logo-img" height="150px" style="margin-top: -7px;" >
+      </div>
+      <input type="checkbox" id="click">
+      <label for="click" class="menu-btn">
+         <i class="fas fa-bars"></i>
+      </label>
+      <ul>
+         <li><a id="home-link" class="nav-link active" href="#">Home</a></li>
+         <li><a id="destination-link" class="nav-link" href="#explor-top-destination">Destination</a></li>
+         <li><a id="services-link" class="nav-link" href="#services">Services</a></li>
+         <li><a id="packages-link" class="nav-link" href="#">Packages</a></li>
+         <li><a id="packages-link" class="nav-link" href="#">Blog</a></li>
+         <li><a id="customize-link" class="nav-link" href="coustomfrom.html">Customize Trip</a></li>
+      </ul>
+   </nav>
+   
+   <div class="info-box">
+      <p>Reliability, consistency, budget-friendly, and over 20 years of service. Ranked among the “<strong>5 Agencies</strong> ” in
+         Pakistan and dealing in domestic and international tours with over 10,000 satisfied customers.</p>
+   </div>
+
+   <div class="info-box">
+      <p><strong>The TREKKERS Travel and Tours</strong> (EST 2005) is a Government Registered destination management
+         company with DTS License #9150.</p>
+   </div>
+
+   <a href="coustomfrom.html">
+    <button class="book-now">Book Now</button>
+ </a>
+ 
+
+
+   <div class="oval-container">
+      <div class="oval-group">
+         <div class="oval one">
+            <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/main%201.jpg?alt=media&token=a3f4763d-803a-4aa6-96c2-7c0e47ee7336" alt="Image 1">
+         </div>
+         <div class="text-box" id="text-box-1">Domestic Tours</div>
+      </div>
+      
+      <div class="oval-group">
+         <div class="oval two">
+            <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/main2.jpg?alt=media&token=d5dd07c4-9145-429f-9cc0-7ff0877b9a7d" alt="Image 2">
+         </div>
+         <div class="text-box" id="text-box-2">Private Tours</div>
+      </div>
+   
+      <div class="oval-group">
+         <div class="oval three">
+            <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/main3.jpg?alt=media&token=f48b8869-9d5b-4714-89ed-2d41be5f14ba" alt="Image 3">
+         </div>
+         <div class="text-box" id="text-box-3">Internation Tours</div>
+      </div>
+   </div>
+
+   <div class="main  " id="text-box-2">Our Affilation:</div>
+
+   
+   <div class="banner">
+      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/nadra%2011.png?alt=media&token=c1323bae-7ed2-412e-bf90-1a5d89357b07" alt="Department of Tourism Services" class="logo">
+      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/nadra%2022.png?alt=media&token=7fecefe8-d247-4a67-9d32-b630f171103a" alt="NADRA" class="logo">
+      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/ndara%2033.png?alt=media&token=4ee7bcc3-7781-4b05-98b4-b82a5b5630b4" alt="Intellectual Property Organization" class="logo">
+      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/ndra%2044.png?alt=media&token=e72eab83-c90e-4ce6-88d5-f9279832cad1" alt="Pakistan Association of Tour Operators" class="logo">
+      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/nadra%2055.png?alt=media&token=0e9e4dc9-724d-4041-bd58-ea3ae1fb88a7" alt="Pakistan Association of Tour Operators" class="logo">
+  </div>
+
+
+  
+   <div class="form-container">
+        <form id="bookingForm" onsubmit="sendWhatsAppMessage(event)">
+            <div class="form-section what-section">
+                <h3>What?</h3>
+                <label>
+                    <input type="radio" name="service" value="Accommodation" checked> Accommodation <span class="icon">🏠︎</span>
+                </label><br>
+                <label>
+                    <input type="radio" name="service" value="Tour"> Tour <span class="icon">✈︎</span>
+                </label><br>
+                <label>
+                    <input type="radio" name="service" value="Rent a Car"> Rent a Car <span class="icon">⛍</span>
+                </label>
+            </div>
+
+            <div class="form-section when-section">
+                <h3>When?</h3>
+                <label>Check-in Date<br><input type="date" id="checkInDate"></label><br>
+                <label>Check-out Date<br><input type="date" id="checkOutDate"></label>
+            </div>
+
+            <div class="form-section where-section">
+                <h3>Where?</h3>
+                <label>
+                    Destination<br>
+                    <select id="destination">
+                        <option value="" disabled selected>Select a destination</option>
+                        <option value="Hunza valley">Hunza valley</option>
+                        <option value="Skardu valley">Skardu valley</option>
+                        <option value="Nanga Parbat">Nanga Parbat</option>
+                        <option value="K2 Base camp">K2 Base camp</option>
+                        <option value="Fairy Meadows">Fairy Meadows</option>
+                        <option value="Neelum valley">Neelum valley</option>
+                    </select>
+                </label><br>
+                <label>Contact No<br><input type="text" id="contactNumber" placeholder="Enter contact number"></label>
+               </div>
+               
+            </form>
+            <div class="form-section guests-section">
+                <h3>Guests</h3>
+                <label>Adults<br><input type="number" id="adults" placeholder="Enter number of adults" min="1"></label><br>
+                <label>Children<br><input type="number" id="children" placeholder="Enter number of children" min="0"></label><br>
+                <form id="button" onsubmit="sendWhatsAppMessage(event)">
+            </div>
+            <button type="submit" class="book-button">Book Here</button>
+        </form>
+            
+      
+        </div>
+         
+
+
+ 
+    
+        <div class="container">
+        
+        <div class="explor" id="explor-top-destination">
+           Explor Top Destination
+        </div>
+       
+       
+       <div class="card-container">
+          <div class="card">
+           <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/Hunza%20valley.jpg?alt=media&token=b55ba685-4b51-43cd-8c48-a11b4ffd6468" alt="Van Premium">
+           <h2>Hunza valley</h2>
+           <p class="price">(10 Days)</p>
+
+           <h4 class="content">Itinerary Code AT 190 Duration 10 Days mode Transpot: Land Travel Day 1 Pickup and departure from...</h4>
+           
+           <form action="coustomfrom.html" method="get">
+            <button type="submit">Book Now</button>
+        </form>
+        
+       </div>
+       <div class="card">
+           <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/skardu%20valley%20from%20googgle.jpg?alt=media&token=63d0115d-1da2-4e55-920a-8c15a98f6a9a" alt="Land Cruiser V8">
+           <h2>Skardu Valley</h2>
+           <p class="price">(15 Days)</p>
+
+           <h4 class="content">Itinerary Code AT 164 Duration 6 Days mode Transpot: Air Travel (Flight) Day 1 Fly to Skardu...</h4>
+          
+
+           <form action="coustomfrom.html" method="get">
+            <button type="submit">Book Now</button>
+        </form>
+
+
+       </div>
+       <div class="card">
+           <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/naga%20parbat.jpg?alt=media&token=fe28e1b6-ba50-471e-9819-6f5b12ece6cc" alt="Mountain Jeep">
+           <h2>Naga Parbat</h2>
+           <p class="price">(14 Days)</p>
+
+           <h4 class="content">Naga Parbat Base camp and Hunza Valley (2025-25) - 13 Days Naga  Parbat Treak and Hunza Valley...</h4>
+
+
+           
+
+           <form action="coustomfrom.html" method="get">
+            <button type="submit">Book Now</button>
+        </form>
+
+       </div>
+
+       <div class="card">
+         <img  src="k2 base .jpg" alt="Mountain Jeep">
+         <h2>k2 Base Camp</h2>
+         <p class="price">(21 Days)</p>
+
+         <h4 class="content">K2 Base camp Treak (2024-25) -21 days K2 base camp trek is the most  popular trekking holidays from...</h4>
+
+         
+         
+         <form action="coustomfrom.html" method="get">
+            <button type="submit">Book Now</button>
+        </form>
+
+     </div>
+     <div class="card">
+      <img style="height: 200px;" src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/fairy%20meadows%20google%20-%20Copy.jpg?alt=media&token=d11330b4-66e1-4518-99d5-559b9dc46adf" alt="Mountain Jeep">
+      <h2>Fairy Meadows</h2>
+      <p class="price">(7 Days)</p>
+
+
+      <h4 class="content">Naga parbat Base camp treak-Fairy Meadows Trek Itineary Code: AT 183 Duration :7 Days Mode...</h4>
+     
+
+
+      <form action="coustomfrom.html" method="get">
+        <button type="submit">Book Now</button>
+    </form>
+
+  </div>
+  <div class="card">
+   <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/kashmir.jpg?alt=media&token=737f16da-c4b0-49c1-a1e2-ccde494d6fb6" alt="Mountain Jeep">
+   <h2>Kashmir: Neelum Valley</h2>
+   <p class="price">(7 days)</p>
+
+
+   <h4 class="content">Itinerary Code AT 180 Duration:7 Days mode Transpot: Land Travel  Day 1 Depature for Neelum Valley..</h4>
+  
+
+
+   <form action="coustomfrom.html" method="get">
+    <button type="submit">Book Now</button>
+</form>
+
+
+</div>
+   </div>
+</div>
+
+                                                       <!--Cars SECTION-->
+
+<div class="montainer">
+   <h1>Explore our latest vehicles:</h1>
+   <div class="mard-montainer">
+       <div class="mard">
+           <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/van.jpg?alt=media&token=a97805f8-ff5b-4784-9064-024aeb4903f3" alt="Van Premium">
+           <hr>
+           <h2>Van-Premium (10 seater)</h2>
+           <hr>
+           <p class="jrice">Price per day: 25K PKR</p>
+           <hr> <!-- Horizontal line added here -->
+           <ul>
+               <li><strong>Car Type:</strong> Van/Buses</li>
+               <li><strong>Max People:</strong> 10</li>
+               <li><strong>Door count:</strong> 3</li>
+               <li><strong>Min Driver Age:</strong> 25</li>
+               <li><strong>Transmission:</strong> Manual</li>
+               <li><strong>Air Conditioned:</strong> Yes</li>
+               <li><strong>Unlimited Mileage:</strong> No</li>
+           </ul>
+           <hr>
+           <button onclick="bookNow('Van-Premium (10 seater)')">Book Now</button>
+       </div>
+       <div class="mard">
+           <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/dala.jpg?alt=media&token=efe4954c-f997-4f7c-9bc7-6a9c8cd9e215" alt="Land Cruiser V8">
+           <hr>
+           <h2>Land Cruiser V8 (2015)</h2>
+           <hr>
+           <p class="jrice">Price per day: 30K PKR</p>
+           <hr> <!-- Horizontal line added here -->
+           <ul>
+               <li><strong>Car Type:</strong> Prado/SUVs</li>
+               <li><strong>Max People:</strong> 4</li>
+               <li><strong>Door count:</strong> 5</li>
+               <li><strong>Min Driver Age:</strong> 30</li>
+               <li><strong>Transmission:</strong> Automatic</li>
+               <li><strong>Air Conditioned:</strong> Yes</li>
+               <li><strong>Unlimited Mileage:</strong> No</li>
+           </ul>
+           <hr>
+           <button onclick="bookNow('Land Cruiser V8 (2015)')">Book Now</button>
+       </div>
+       <div class="mard">
+           <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/jeep.jpg?alt=media&token=b4df980a-c260-402f-9f01-5f8e1d88ce49" alt="Mountain Jeep">
+           <hr>
+           <h2>Mountain Jeep (10 seater)</h2>
+           <hr>
+           <p class="jrice">Price per day: 10K PKR</p>
+
+           <hr> <!-- Horizontal line added here -->
+           <ul>
+               <li><strong>Car Type:</strong> Jeeps</li>
+               <li><strong>Max People:</strong> 4</li>
+               <li><strong>Door count:</strong> 2</li>
+               <li><strong>Min Driver Age:</strong> 30</li>
+               <li><strong>Transmission:</strong> Manual</li>
+               <li><strong>Air Conditioned:</strong> No</li>
+               <li><strong>Unlimited Mileage:</strong> No</li>
+           </ul>
+           <hr>
+             <button onclick="bookNow('Mountain Jeep (10 seater)')">Book Now</button>
+       </div>
+   </div>
+</div>
+
+                                                                 <!--CARS SECTION END -->
+
+
+
+
+
+                                                               <!--SERVICES SECTION-->
+   <!-- SERVICES SECTION -->
+   <section id="services">
+   <div class="services-container">
+      <h2>Services Included:</h2>
+      <div class="services">
+          <!-- First row with 3 items -->
+          <div class="services-row">
+              <div class="service-item">
+                  <div class="service-images">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/double-decker-bus_.png?alt=media&token=bde12f14-7273-4bd2-b2ad-c7605efa74cd" alt="Private Air Conditioned Vehicle"> <!-- Replace with actual icon path -->
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/school-bus.png?alt=media&token=0ed31f92-3884-44c8-91bc-25d009e99e90" alt="Additional Icon 1"> <!-- Replace with actual icon path -->
+                  </div>
+                  <p>Private Air<br>Conditioned Vehicle</p>
+              </div>
+              <div class="service-item">
+                  <div class="service-images">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/breakfast.png?alt=media&token=6de266ed-313e-4630-806c-60b707667db7" alt="Breakfast-Dinner Buffet"> <!-- Replace with actual icon path -->
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/coffe.png?alt=media&token=5bb2bfe0-9bcc-4926-9d98-1791308137b7" alt="Additional Icon 2"> <!-- Replace with actual icon path -->
+                  </div>
+                  <p>Breakfast-Dinner Buffet</p>
+              </div>
+              <div class="service-item">
+                  <div class="service-images">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/skewer.png?alt=media&token=f7742e56-b714-4114-85d8-a3949c03ec78" alt="Live BBQ-Bonfire Night"> <!-- Replace with actual icon path -->
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/campfire.png?alt=media&token=7c25c102-205e-44b3-8a6e-f5b9027bcaeb" alt="Additional Icon 3"> <!-- Replace with actual icon path -->
+                  </div>
+                  <p>Live BBQ-Bonfire Night</p>
+              </div>
+          </div>
+  
+          <!-- Second row with 2 items -->
+          <div class="services-row">
+              <div class="service-item">
+                  <div class="service-images">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/bandage.png?alt=media&token=2f700839-8b33-4e71-a01c-abea836fb7ef" alt="Basic First Aid Kit"> <!-- Replace with actual icon path -->
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/first%20aod.png?alt=media&token=fa9eee75-a552-4188-ba24-964dcab4e9bb" alt="Additional Icon 4"> <!-- Replace with actual icon path -->
+                  </div>
+                  <p>Basic First Aid Kit</p>
+              </div>
+              <div class="service-item">
+                  <div class="service-images">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/tax.png?alt=media&token=f890d765-cef9-4610-baf4-6fc6088a814e" alt="All Toll and Taxes"> <!-- Replace with actual icon path -->
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/alltool.png?alt=media&token=16ab34da-6e5c-4d76-81c4-aa1f1da47733" alt="Additional Icon 5"> <!-- Replace with actual icon path -->
+                  </div>
+                  <p>All Toll and Taxes</p>
+              </div>
+          </div>
+  
+          <!-- Third row with 1 item -->
+          <div class="services-row">
+              <div class="service-item">
+                  <div class="service-images">
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/touist.png?alt=media&token=c3e5a521-1807-4236-b2eb-a1887fb5e5f3" alt="Tourist Guide and Driver Wages"> <!-- Replace with actual icon path -->
+                      <img src="https://firebasestorage.googleapis.com/v0/b/test-c5508.appspot.com/o/driver.png?alt=media&token=bc331aeb-d06e-43d1-9f08-25eb0b0509cb" alt="Additional Icon 6"> <!-- Replace with actual icon path -->
+                  </div>
+                  <p>Tourist Guide-Driver Wages</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+  
+  
+
+
+                                                       
+                                                        
+                                                        <!--FOOTER-->
+ <footer>
+   <div class="footer-container">
+       <div class="footer-section latest-updates">
+           <h3>Get latest tour updates:</h3>
+           <form id="whatsappForm">
+               <input type="text" id="messageInput" placeholder="Come, Let's Plan" required>
+               <button type="submit">WHATSAPP</button>
+           </form>
+           
+       </div>
+       
+       <div class="footer-section more-info">
+           <h3>More Information</h3>
+           <ul>
+               <li><a href="#">Contact</a></li>
+               <li><a href="#">Customize My Tour</a></li>
+               <li><a href="#">About Us</a></li>
+               <li><a href="#">FAQs</a></li>
+               <li><a href="#">Privacy Policy</a></li>
+           </ul>
+       </div>
+       
+       <div class="footer-section social-media">
+           <h3>We are social!</h3>
+           <div class="social-icons">
+               <a href="#"><i class="fab fa-facebook-f"></i></a>
+               <a href="#"><i class="fab fa-google"></i></a>
+               <a href="#"><i class="fab fa-instagram"></i></a>
+               <a href="#"><i class="fab fa-linkedin"></i></a>
+               <a href="#"><i class="fab fa-whatsapp"></i></a>
+           </div>
+       </div>
+   </div>
+   
+   <div class="footer-bottom">
+       <p>info@trekkerspakistan.com 2005-2024. All rights reserved</p>
+       <div class="footer-links">
+           <a href="#">Tours</a> |
+           <a href="#">Partner hotels</a> |
+           <a href="#">Car rentals</a> |
+           <a href="#">Contact</a>
+       </div>
+       <p class="developer-credit">
+           Website developed by <a href="https://devrex.vercel.app/" target="_blank">@Devrex</a>
+       </p>
+       
+   </div>
+</footer>
+
+
+                                                      <!--FOOTER-->  
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+   
+  <script src="script.js"></script>
+</body>
+
+</html>
