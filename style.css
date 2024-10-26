@@ -2512,14 +2512,14 @@ section {
 
 /* Swiper Button Styling */
 .slider-wrapper .swiper-slide-button {
-  background-color: #2e5530;
+  background-color: #fff;
   border-radius: 8px;
-  width: 41px;
-  height: 63px;
+  width: 30px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #3e6b40;
   font-size: 18px;
   margin-top: -55px;
   transition: background-color 0.3s ease;
@@ -2535,7 +2535,7 @@ section {
 /* Add hover effect */
 .slider-wrapper .swiper-slide-button:hover {
   background-color: #388e3c;
-  color: #d3d3d3;
+  color: #ffffff;
 }
 
 /* Align Buttons */
