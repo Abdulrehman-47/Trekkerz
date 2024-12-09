@@ -220,135 +220,137 @@ $(document).ready(function () {
 
 
 
+function initializeSlider(sliderContainer) {
+    const exploreSlider = sliderContainer.querySelector('.explore-slider');
+    const slides = sliderContainer.querySelectorAll('.slide').length;
+    const buttons = sliderContainer.querySelectorAll('.btn');
 
-                                                 function initializeSlider(sliderContainer) {
-                                                    const exploreSlider = sliderContainer.querySelector('.explore-slider');
-                                                    const slides = sliderContainer.querySelectorAll('.slide').length;
-                                                    const buttons = sliderContainer.querySelectorAll('.btn');
-                                                  
-                                                    let isDragging = false;
-                                                    let startX = 0;
-                                                    let currentX = 0;
-                                                    let moveX = 0;
-                                                    let startMargin = 0;
-                                                  
-                                                    const slidesPerPage = calculateSlidesPerPage(sliderContainer.offsetWidth);
-                                                    const slidesCount = slides - slidesPerPage;
-                                                    let currentMargin = 0;
-                                                  
-                                                    // Helper function to calculate slides per page based on width
-                                                    function calculateSlidesPerPage(containerWidth) {
-                                                      if (containerWidth < 551) return 1;
-                                                      if (containerWidth < 901) return 2;
-                                                      if (containerWidth < 1101) return 3;
-                                                      return 4;
-                                                    }
-                                                  
-                                                    // Update slider's parameters dynamically on resize
-                                                    window.addEventListener("resize", () => {
-                                                      updateSliderParams();
-                                                    });
-                                                  
-                                                    // Update parameters based on current slider width
-                                                    function updateSliderParams() {
-                                                      const containerWidth = sliderContainer.offsetWidth;
-                                                      currentMargin = Math.max(
-                                                        Math.min(currentMargin, 0),
-                                                        -slidesCount * (100 / slidesPerPage)
-                                                      );
-                                                      exploreSlider.style.marginLeft = `${currentMargin}%`;
-                                                      updateButtonStates();
-                                                    }
-                                                  
-                                                    // Function to set button states
-                                                    function updateButtonStates() {
-                                                      if (buttons.length > 0) {
-                                                        buttons[0].classList.toggle('inactive', currentMargin === 0);
-                                                        buttons[1].classList.toggle(
-                                                          'inactive',
-                                                          currentMargin <= -slidesCount * (100 / slidesPerPage)
-                                                        );
-                                                      }
-                                                    }
-                                                  
-                                                    // Dragging functions
-                                                    function dragStart(e) {
-                                                      isDragging = true;
-                                                      startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
-                                                      startMargin = currentMargin;
-                                                      exploreSlider.style.cursor = 'grabbing';
-                                                    }
-                                                  
-                                                    function dragMove(e) {
-                                                      if (!isDragging) return;
-                                                  
-                                                      currentX = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
-                                                      moveX = (startX - currentX) / sliderContainer.offsetWidth * 100;
-                                                  
-                                                      const newMargin = startMargin - moveX;
-                                                  
-                                                      // Enforce boundaries to prevent extra blank space
-                                                      if (newMargin <= 0 && newMargin >= -slidesCount * (100 / slidesPerPage)) {
-                                                        currentMargin = newMargin;
-                                                        exploreSlider.style.marginLeft = `${currentMargin}%`;
-                                                      }
-                                                    }
-                                                  
-                                                    function dragEnd() {
-                                                      if (!isDragging) return;
-                                                      isDragging = false;
-                                                  
-                                                      // Snap to nearest slide if necessary
-                                                      currentMargin = Math.round(currentMargin * slidesPerPage / 100) * (100 / slidesPerPage);
-                                                  
-                                                      // Enforce boundaries
-                                                      currentMargin = Math.max(
-                                                        Math.min(currentMargin, 0),
-                                                        -slidesCount * (100 / slidesPerPage)
-                                                      );
-                                                  
-                                                      exploreSlider.style.marginLeft = `${currentMargin}%`;
-                                                      exploreSlider.style.cursor = 'grab';
-                                                      updateButtonStates();
-                                                    }
-                                                  
-                                                    // Attach drag events
-                                                    exploreSlider.addEventListener('mousedown', dragStart);
-                                                    document.addEventListener('mousemove', dragMove);
-                                                    document.addEventListener('mouseup', dragEnd);
-                                                  
-                                                    exploreSlider.addEventListener('touchstart', dragStart);
-                                                    exploreSlider.addEventListener('touchmove', dragMove);
-                                                    exploreSlider.addEventListener('touchend', dragEnd);
-                                                  
-                                                    // Button functions
-                                                    function slideLeft() {
-                                                      currentMargin = Math.min(currentMargin + (100 / slidesPerPage), 0);
-                                                      exploreSlider.style.marginLeft = `${currentMargin}%`;
-                                                      updateButtonStates();
-                                                    }
-                                                  
-                                                    function slideRight() {
-                                                      currentMargin = Math.max(
-                                                        currentMargin - (100 / slidesPerPage),
-                                                        -slidesCount * (100 / slidesPerPage)
-                                                      );
-                                                      exploreSlider.style.marginLeft = `${currentMargin}%`;
-                                                      updateButtonStates();
-                                                    }
-                                                  
-                                                    // Attach button events
-                                                    if (buttons.length > 0) {
-                                                      buttons[0].addEventListener('click', slideLeft);
-                                                      buttons[1].addEventListener('click', slideRight);
-                                                    }
-                                                  
-                                                    // Initialize parameters and button states
-                                                    updateSliderParams();
-                                                  }
-                                                  
-                                                  // Initialize all sliders
-                                                  document.querySelectorAll('.explore-container').forEach(initializeSlider);
+    let isDragging = false;
+    let startX = 0;
+    let currentX = 0;
+    let moveX = 0;
+    let startMargin = 0;
+
+    const slidesPerPage = calculateSlidesPerPage(sliderContainer.offsetWidth);
+    const slidesCount = slides - slidesPerPage;
+    let currentMargin = 0;
+
+    // Helper function to calculate slides per page based on width
+    function calculateSlidesPerPage(containerWidth) {
+        if (containerWidth < 551) return 1;
+        if (containerWidth < 901) return 2;
+        if (containerWidth < 1101) return 3;
+        return 4;
+    }
+
+    // Update slider's parameters dynamically on resize
+    window.addEventListener("resize", () => {
+        updateSliderParams();
+    });
+
+    // Update parameters based on current slider width
+    function updateSliderParams() {
+        const containerWidth = sliderContainer.offsetWidth;
+        currentMargin = Math.max(
+            Math.min(currentMargin, 0),
+            -slidesCount * (100 / slidesPerPage)
+        );
+        exploreSlider.style.marginLeft = `${currentMargin}%`;
+        updateButtonStates();
+    }
+
+    // Function to set button states
+    function updateButtonStates() {
+        if (buttons.length > 0) {
+            buttons[0].classList.toggle('inactive', currentMargin === 0);
+            buttons[1].classList.toggle(
+                'inactive',
+                currentMargin <= -slidesCount * (100 / slidesPerPage)
+            );
+        }
+    }
+
+    // Dragging functions
+    function dragStart(e) {
+        isDragging = true;
+        startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+        startMargin = currentMargin;
+        exploreSlider.style.cursor = 'grabbing';
+    }
+
+    function dragMove(e) {
+        if (!isDragging) return;
+
+        currentX = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+
+        // Amplify moveX for a more responsive experience
+        moveX = ((startX - currentX) / sliderContainer.offsetWidth) * 280; // Increased sensitivity
+
+        const newMargin = startMargin - moveX;
+
+        // Enforce boundaries to prevent extra blank space
+        if (newMargin <= 0 && newMargin >= -slidesCount * (100 / slidesPerPage)) {
+            currentMargin = newMargin;
+            exploreSlider.style.marginLeft = `${currentMargin}%`;
+        }
+    }
+
+    function dragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+
+        // Snap to nearest slide if necessary
+        currentMargin = Math.round(currentMargin * slidesPerPage / 100) * (100 / slidesPerPage);
+
+        // Enforce boundaries
+        currentMargin = Math.max(
+            Math.min(currentMargin, 0),
+            -slidesCount * (100 / slidesPerPage)
+        );
+
+        exploreSlider.style.marginLeft = `${currentMargin}%`;
+        exploreSlider.style.cursor = 'grab';
+        updateButtonStates();
+    }
+
+    // Attach drag events
+    exploreSlider.addEventListener('mousedown', dragStart);
+    document.addEventListener('mousemove', dragMove);
+    document.addEventListener('mouseup', dragEnd);
+
+    exploreSlider.addEventListener('touchstart', dragStart);
+    exploreSlider.addEventListener('touchmove', dragMove);
+    exploreSlider.addEventListener('touchend', dragEnd);
+
+    // Button functions
+    function slideLeft() {
+        currentMargin = Math.min(currentMargin + (100 / slidesPerPage), 0);
+        exploreSlider.style.marginLeft = `${currentMargin}%`;
+        updateButtonStates();
+    }
+
+    function slideRight() {
+        currentMargin = Math.max(
+            currentMargin - (100 / slidesPerPage),
+            -slidesCount * (100 / slidesPerPage)
+        );
+        exploreSlider.style.marginLeft = `${currentMargin}%`;
+        updateButtonStates();
+    }
+
+    // Attach button events
+    if (buttons.length > 0) {
+        buttons[0].addEventListener('click', slideLeft);
+        buttons[1].addEventListener('click', slideRight);
+    }
+
+    // Initialize parameters and button states
+    updateSliderParams();
+}
+
+// Initialize all sliders
+document.querySelectorAll('.explore-container').forEach(initializeSlider);
+
                                                   
 
 
